@@ -31,7 +31,10 @@ jobs:
     - name: Build and push Docker image
       run: |
         IMAGE_NAME=gcr.io/${{ secrets.GCP_PROJECT_ID }}/django-app:latest
-        gcloud builds submit --tag $IMAGE_NAME
+        gcloud builds submit \
+        --tag $IMAGE_NAME \
+        --quiet \
+        --async
 
     # 部署到 Cloud Run
     - name: Deploy to Cloud Run

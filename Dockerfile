@@ -22,4 +22,5 @@ RUN python manage.py collectstatic --noinput
 # EXPOSE 8080
 
 # CMD gunicorn -w 1 -b 0.0.0.0:$PORT core.wsgi:application
-CMD ["gunicorn", "-b", "0.0.0.0:${PORT}", "core.wsgi:application"]
+# CMD ["gunicorn", "-b", "0.0.0.0:${PORT}", "core.wsgi:application"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "core.wsgi:application"]
